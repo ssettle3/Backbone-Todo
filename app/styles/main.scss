@@ -5,22 +5,29 @@
 // Custom Styles
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  font-family: 'Poiret One', cursive;
+  color: #4183C4;
 }
 
-.hero-unit {
+.container{
   margin: 50px auto 0 auto;
-  width: 600px;
+  width: 700px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+  background-color: lighgray;
   border-radius: 6px;
   padding: 60px;
   h1 {
     font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+    margin: 5px 0 0 5px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4183C4;
+  }
+  input{
+    width: 600px;
+    font-size: 30px;
+    margin: 15px 0 0 0;
   }
 }
