@@ -45,6 +45,19 @@ var TodoCol = Backbone.Collection.extend ({
 
 });
 
+// Create a Collection
+var allTodos = new TodoCol;
+
+// Variables
+
+
+
+// Adding Todos
+
+
+
+
+
 
 
 

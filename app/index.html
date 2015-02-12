@@ -24,21 +24,23 @@
 
     <div class="container">
       <h1>A Human's Todo</h1>
-      <form action="submit">
+      <form id='form' action="submit">
         <input id='input-todo' type="text" placeholder='Human needs?'>
       </form>
-      <ul class="list-items"></ul>
+      <ul id='list' class="list-items"></ul>
     </div>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/handlebars/handlebars.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/backbone/backbone.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/templates.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
