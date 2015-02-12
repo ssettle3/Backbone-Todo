@@ -1,3 +1,19 @@
-## Yo, I'm a Readme
+# To-Do List Application using Backbone
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+## Description
+ * A simple Todo list app using Backbone
+
+## Want my To Do List?
+ * Clone my repo
+ * Run npm install
+ * Run bower install
+ * Go here for deployed version:
+
+## Libraries / Resources Used
+ * jQuery
+ * SASS
+ * Underscore
+ * Backbone
+
+## Copyright / License
+ * This project belongs to Stephen Settle
