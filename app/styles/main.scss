@@ -19,7 +19,7 @@ body {
   border-radius: 6px;
   padding: 60px;
   h1 {
-    font-size: 60px;
+    font-size: 70px;
     margin: 5px 0 0 5px;
     text-align: center;
     padding-bottom: 20px;
@@ -32,7 +32,7 @@ body {
   }
   li{
     border-bottom: 1px solid gray;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     margin: 5px;
   }
@@ -47,4 +47,7 @@ body {
 .closed{
   text-decoration: line-through;
   color: gray;
+}
+.hidden{
+  display: none;
 }

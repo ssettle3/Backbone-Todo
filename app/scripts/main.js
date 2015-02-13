@@ -15,19 +15,16 @@ var Todo = Backbone.Model.extend({
 	},
 
 	toggleStatus: function (){
-		if (status === 'open'){
-			status === 'closed';
+		if (this.get('status') ==='open'){
+			this.set('status', 'closed') 
 		} else {
-			status === 'open';
+			this.set('status', 'open')
 		};
+
 	},
 
 	toggleDelete: function(){
-		if (hidden === false){
-			hidden === true;
-		} else {
-			hidden === false;
-		};
+		
 	},
 
 });
@@ -51,12 +48,11 @@ var allTodos = new TodoCol();
 // Variables
 var form = $('#form');
 var list = $('#list');
-var item = new Todo();
 var input = $('#input-todo');
 
 // Fetch Data
 allTodos.fetch().done( function(){
-	console.log('fetched');
+	console.log('Data has been fetched');
 
 	// Put Fetched Data on Screen
 	allTodos.each(function (item) {
@@ -76,17 +72,34 @@ form.on('submit', function (e){
 	// Make Visual
 	list.prepend(Handlebars.templates.todo(item.attributes));
 
-	//Push Todo Item to Server
+	// Push Todo Item to Server
 	item.save().done();
 
-	//Reset Form
+	// Reset Form
 	this.reset();
 });
 
 // Toggle Todo Open/Complete
+list.on('click', 'li', function (e){
+	$(this).toggleClass('closed');
 
+	var thisTask = event.target.id;
+	var taskInstance = allTodos.findWhere({ _id: thisTask });
+	taskInstance.toggleStatus();
+
+});
 
 // Delete Item
+list.on('click', 'span', function (e){
+	e.preventDefault();
+	var dltTask = $(event.target).parent();
+
+	// Delete from List
+	$(dltTask).addClass('hidden');
+
+
+
+});
 
 
 
