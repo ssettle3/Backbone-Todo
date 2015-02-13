@@ -30,4 +30,21 @@ body {
     font-size: 30px;
     margin: 15px 0 0 0;
   }
+  li{
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  span{
+    float: right;
+  }
+  span:hover{
+    color: red;
+    cursor: pointer;
+  }
+}
+.closed{
+  text-decoration: line-through;
+  color: gray;
 }
