@@ -24,7 +24,11 @@ var Todo = Backbone.Model.extend({
 	},
 
 	toggleDelete: function(){
-		
+		if (this.get('hidden') === false){
+			this.set('hidden', true) 
+		} else {
+			this.set('hidden', false)
+		};
 	},
 
 });
@@ -77,12 +81,14 @@ form.on('submit', function (e){
 
 	// Reset Form
 	this.reset();
+
 });
 
 // Toggle Todo Open/Complete
 list.on('click', 'li', function (e){
 	$(this).toggleClass('closed');
 
+	// Update Status
 	var thisTask = event.target.id;
 	var taskInstance = allTodos.findWhere({ _id: thisTask });
 	taskInstance.toggleStatus();
@@ -92,11 +98,15 @@ list.on('click', 'li', function (e){
 // Delete Item
 list.on('click', 'span', function (e){
 	e.preventDefault();
-	var dltTask = $(event.target).parent();
 
 	// Delete from List
+	var dltTask = $(event.target).parent();
 	$(dltTask).addClass('hidden');
 
+	// Updated Hidden
+	var dltID = $(event.target).parent()[0].id;
+	var dltInstance = allTodos.findWhere({ _id: dltID });
+	dltInstance.toggleDelete();
 
 
 });
