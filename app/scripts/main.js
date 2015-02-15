@@ -60,11 +60,16 @@ allTodos.fetch().done( function(){
 
 	// Put Fetched Data on Screen
 	allTodos.each(function (item) {
-		if (item.get('status') ==='open'){
-			list.append(Handlebars.templates.todo(item.attributes));
+		if (item.get('hidden') === true){
+			list.append(Handlebars.templates.todoDelete(item.attributes));
 		} else {
-			list.append(Handlebars.templates.todoComp(item.attributes));
+			if (item.get('status') ==='open'){
+				list.append(Handlebars.templates.todo(item.attributes));
+			} else {
+				list.append(Handlebars.templates.todoComp(item.attributes));
+			}
 		}
+
 	});
 
 });
@@ -97,9 +102,7 @@ list.on('click', 'li', function (e){
 	var taskInstance = allTodos.findWhere({ _id: thisTask });
 	taskInstance.toggleStatus();
 
-	console.log(taskInstance);
 	// Push to Server
-	// taskInstance.save({status: 'closed'});
 	taskInstance.save();
 
 
