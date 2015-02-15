@@ -42,7 +42,7 @@ var TodoCol = Backbone.Collection.extend ({
 
 	model: Todo,
 
-	url: 'http://tiy-atl-fe-server.herokuapp.com/collections/randomness',
+	url: 'http://tiy-atl-fe-server.herokuapp.com/collections/randomness2',
 
 });
 
@@ -60,14 +60,10 @@ allTodos.fetch().done( function(){
 
 	// Put Fetched Data on Screen
 	allTodos.each(function (item) {
-		if (item.get('hidden') === true){
-			list.append(Handlebars.templates.todoDelete(item.attributes));
-		} else {
-			if (item.get('status') ==='open'){
+		if (item.get('status') ==='closed'){
+			list.append(Handlebars.templates.todoComp(item.attributes));
+		} else { 
 				list.append(Handlebars.templates.todo(item.attributes));
-			} else {
-				list.append(Handlebars.templates.todoComp(item.attributes));
-			}
 		}
 
 	});
@@ -122,7 +118,7 @@ list.on('click', 'span', function (e){
 	dltInstance.toggleDelete();
 
 	// Push to Server
-	dltInstance.save();
+	dltInstance.destroy();
 
 });
 
