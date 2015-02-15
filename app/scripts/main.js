@@ -60,7 +60,11 @@ allTodos.fetch().done( function(){
 
 	// Put Fetched Data on Screen
 	allTodos.each(function (item) {
-		list.append(Handlebars.templates.todo(item.attributes));
+		if (item.get('status') ==='open'){
+			list.append(Handlebars.templates.todo(item.attributes));
+		} else {
+			list.append(Handlebars.templates.todoComp(item.attributes));
+		}
 	});
 
 });
@@ -93,6 +97,12 @@ list.on('click', 'li', function (e){
 	var taskInstance = allTodos.findWhere({ _id: thisTask });
 	taskInstance.toggleStatus();
 
+	console.log(taskInstance);
+	// Push to Server
+	// taskInstance.save({status: 'closed'});
+	taskInstance.save();
+
+
 });
 
 // Delete Item
@@ -108,6 +118,8 @@ list.on('click', 'span', function (e){
 	var dltInstance = allTodos.findWhere({ _id: dltID });
 	dltInstance.toggleDelete();
 
+	// Push to Server
+	dltInstance.save();
 
 });
 
