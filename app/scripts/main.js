@@ -99,7 +99,7 @@ list.on('click', 'li', function (e){
 	taskInstance.toggleStatus();
 
 	// Push to Server
-	taskInstance.save({'status': 'closed'});
+	taskInstance.save();
 
 
 });
