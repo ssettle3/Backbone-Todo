@@ -28,7 +28,7 @@ templates['todoDelete'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":func
     + " <span> X </span> </li>\n";
 },"useData":true});
 })();
-// Todo Model
+.// Todo Model
 var Todo = Backbone.Model.extend({
 
 	initialize: function (){
@@ -140,6 +140,7 @@ list.on('click', 'span', function (e){
 
 	// Delete from List
 	var dltTask = $(event.target).parent();
+	console.log(dltTask);
 	$(dltTask).addClass('hidden');
 
 	// Updated Hidden
