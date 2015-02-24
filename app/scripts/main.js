@@ -1,4 +1,4 @@
-.// Todo Model
+// Todo Model
 var Todo = Backbone.Model.extend({
 
 	initialize: function (){

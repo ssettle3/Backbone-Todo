@@ -38,8 +38,10 @@ body {
   li{
     border-bottom: 1px solid gray;
     font-size: 25px;
+    width: 50%;
     cursor: pointer;
-    margin: 5px;
+    margin: 0 auto;
+    padding: 10px;
   }
   span{
     float: right;
